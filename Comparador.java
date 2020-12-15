@@ -1,14 +1,17 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 class Comparador{
     public static void main(String args[]){
         HashMap<Integer,String> dictionary = new HashMap<>();
         try{
-            CSVReader csv = new CSVReader("README.md");
-            csv.getContents(dictionary);
-            for(Map.Entry<Integer,String> element:dictionary.entrySet()){
-                System.out.printf("Entry %d: %s\n",element.getKey(), element.getValue());
+            CSVReader csv = new CSVReader("test.csv");
+            ArrayList<String[]> arr = csv.getContents();
+            for(String[] row:arr){
+                for(String i:row)
+                    System.out.printf("[%s]",i);
+                System.out.println();
             }
         }
         catch(Exception e){

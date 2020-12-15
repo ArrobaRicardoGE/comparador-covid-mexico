@@ -3,7 +3,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 class CSVReader{
     private FileInputStream fis; 
@@ -11,12 +11,12 @@ class CSVReader{
         fis = new FileInputStream(filename);
     }
 
-    public void getContents(HashMap<Integer,String> dictionary) throws IOException{
+    public ArrayList<String[]> getContents() throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(fis,"utf-8"));
         String line;
-        int idx = 0; 
+        ArrayList<String[]> contents = new ArrayList<>();
         while((line = br.readLine()) != null)
-            dictionary.put(idx++,line);
-        
+            contents.add(line.split(","));
+        return contents;
     }
 }
