@@ -139,3 +139,4 @@ cython_debug/
 
 #csv
 *.csv
+Draft.ipynb
